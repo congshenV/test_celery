@@ -1,0 +1,5 @@
+# !/bin/bash env
+nohup python manage.py runserver 0.0.0.0:8888 &
+nohup flower -port=5555 -A test_celery &
+nohup celery worker -l info -A test_celery --autoreload &
+nohup python manage.py celery beat &

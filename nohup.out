@@ -1,0 +1,1791 @@
+[I 170728 03:10:40 command:139] Visit me at http://localhost:5555
+[I 170728 03:10:40 command:144] Broker: redis://192.168.180.128:6379/2
+[I 170728 03:10:40 command:147] Registered tasks: 
+    ['celery.backend_cleanup',
+     'celery.chain',
+     'celery.chord',
+     'celery.chord_unlock',
+     'celery.chunks',
+     'celery.group',
+     'celery.map',
+     'celery.starmap',
+     'test_celery.celery.debug_task',
+     'tools.tasks.add',
+     'tools.tasks.ansible_adhoc']
+[I 170728 03:10:40 mixins:231] Connected to redis://192.168.180.128:6379/2
+[W 170728 03:10:42 control:44] 'stats' inspect method failed
+[W 170728 03:10:42 control:44] 'active_queues' inspect method failed
+[W 170728 03:10:42 control:44] 'registered' inspect method failed
+[W 170728 03:10:42 control:44] 'scheduled' inspect method failed
+[W 170728 03:10:42 control:44] 'active' inspect method failed
+[W 170728 03:10:42 control:44] 'reserved' inspect method failed
+[W 170728 03:10:42 control:44] 'revoked' inspect method failed
+[W 170728 03:10:42 control:44] 'conf' inspect method failed
+[28/Jul/2017 03:11:36] "GET /main/ HTTP/1.1" 200 2270
+Not Found: /index/
+[28/Jul/2017 03:11:56] "GET /index/ HTTP/1.1" 404 2618
+[28/Jul/2017 03:12:00] "GET /main/ HTTP/1.1" 200 2270
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 03:11:20
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 03:12:34] "GET /main/ HTTP/1.1" 200 2269
+[28/Jul/2017 03:13:09] "GET /main/ HTTP/1.1" 200 2269
+Internal Server Error: /periodtask_add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/yangyc/celery/test_celery/test_celery/views/ansible.py", line 39, in periodtask_add
+    task, created = celery_models.PeriodicTask.objects.get_or_create(name=name, task=task)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 464, in get_or_create
+    return self.get(**lookup), False
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 374, in get
+    num = len(clone)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 232, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: (1267, "Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='")
+[28/Jul/2017 03:14:04] "GET /periodtask_add/?name=%E6%8E%A5%E5%8F%A3%E8%B0%83%E8%AF%95&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 500 105169
+[28/Jul/2017 03:16:04] "GET /periodtask_add/?name=test&task=tools.tasks.ansible_adhoc&hosts=all&command=pwd&interval=%7B%22every%22%3A5%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2514
+[28/Jul/2017 03:16:11] "GET /periodtask_add/?name=asdasd&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2514
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 03:12:16
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 03:22:27
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 03:33:16] "GET /periodtask_add/?name=asdasd&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2639
+[28/Jul/2017 03:34:00] "GET /periodtask_add/?name=asdasd&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2647
+[28/Jul/2017 03:37:27] "GET /periodtask_add/?name=asdasd&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2723
+[28/Jul/2017 03:37:53] "GET /periodtask_add/?name=asdasd&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2723
+[28/Jul/2017 03:37:55] "GET /periodtask_add/?name=asdasd&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2723
+[28/Jul/2017 03:38:16] "GET /periodtask_add/?name=asdasd&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2723
+Not Found: /index/
+[28/Jul/2017 03:40:18] "GET /index/ HTTP/1.1" 404 2618
+[28/Jul/2017 03:40:25] "GET /main/ HTTP/1.1" 200 2363
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 03:32:33
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 03:42:44] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:09] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:14] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:15] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:15] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:16] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:17] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:17] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:43:23] "GET /chat/ HTTP/1.1" 200 6380
+[28/Jul/2017 03:43:56] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:44:18] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:44:40] "GET /main/ HTTP/1.1" 200 2271
+[28/Jul/2017 03:45:53] "GET /main/ HTTP/1.1" 200 2363
+[28/Jul/2017 03:48:36] "GET /main/ HTTP/1.1" 200 2383
+[28/Jul/2017 03:48:42] "GET /main/ HTTP/1.1" 200 2383
+[28/Jul/2017 03:48:43] "GET /main/ HTTP/1.1" 200 2383
+[28/Jul/2017 03:49:34] "GET /main/ HTTP/1.1" 200 2345
+[28/Jul/2017 03:50:08] "GET /chat/ HTTP/1.1" 200 6380
+[28/Jul/2017 03:50:09] "GET /main/ HTTP/1.1" 200 2345
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 03:42:38
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 03:52:45
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 04:02:51
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 04:12:58
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 04:23:04
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 04:43:07] "GET /periodtask_add/?name=asdasd&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2723
+[28/Jul/2017 04:43:09] "GET /main/ HTTP/1.1" 200 2345
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 04:33:13
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 04:43:30] "GET /periodtask_add/?name=asdasd&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2711
+[28/Jul/2017 04:43:43] "GET /periodtask_add/?name=asdasd&task=tools.tasks.ansible_adhoc&hosts=all&command=hostname&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2711
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 04:43:23
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 04:53:31
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 05:03:37
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 05:13:49
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 05:23:59
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 05:34:07
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 05:46:28] "GET /admin/djcelery/periodictask/ HTTP/1.1" 302 0
+[28/Jul/2017 05:46:28] "GET /admin/login/?next=/admin/djcelery/periodictask/ HTTP/1.1" 200 1694
+[28/Jul/2017 05:46:28] "GET /static/admin/css/login.css HTTP/1.1" 200 1203
+[28/Jul/2017 05:46:29] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[28/Jul/2017 05:46:29] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 05:44:14
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 05:54:22
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 06:04:34
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 06:14:40
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 06:29:55] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 06:30:21] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 06:31:16] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 06:31:18] "GET /main/ HTTP/1.1" 200 2345
+[28/Jul/2017 06:32:48] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 06:32:52] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 06:32:54] "GET /main/ HTTP/1.1" 200 2345
+[28/Jul/2017 06:33:01] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 06:33:03] "GET /main/ HTTP/1.1" 200 2345
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 06:24:46
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 06:34:52
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 06:51:10] "GET /main/ HTTP/1.1" 200 2345
+[28/Jul/2017 06:51:19] "GET /main/ HTTP/1.1" 200 2345
+[28/Jul/2017 06:51:21] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 06:51:24] "GET /main/ HTTP/1.1" 200 2345
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 06:44:58
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 06:55:04
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 07:05:11
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 07:06:10
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Unhandled exception in thread started by <function wrapper at 0x7f855354b5f0>
+Performing system checks...
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/autoreload.py", line 227, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/management/commands/runserver.py", line 125, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/management/base.py", line 359, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/usr/local/lib/python2.7/dist-packages/django/core/management/base.py", line 346, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/checks/urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/checks/urls.py", line 26, in check_resolver
+    return check_method()
+  File "/usr/local/lib/python2.7/dist-packages/django/urls/resolvers.py", line 254, in check
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python2.7/dist-packages/django/urls/resolvers.py", line 405, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python2.7/dist-packages/django/urls/resolvers.py", line 398, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/yangyc/celery/test_celery/test_celery/urls.py", line 24, in <module>
+    url(r'^chat/',ansible.chat),
+AttributeError: 'module' object has no attribute 'chat'
+[28/Jul/2017 07:08:55] "GET /main/ HTTP/1.1" 200 664
+[28/Jul/2017 07:08:57] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 07:09:01] "GET /task/ HTTP/1.1" 200 2347
+[28/Jul/2017 07:09:05] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 07:09:07] "GET /task/ HTTP/1.1" 200 2347
+[28/Jul/2017 07:09:49] "GET /main/ HTTP/1.1" 200 664
+[28/Jul/2017 07:09:54] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 07:09:57] "GET /task/ HTTP/1.1" 200 2347
+[28/Jul/2017 07:10:20] "GET /task/ HTTP/1.1" 200 2347
+[28/Jul/2017 07:10:35] "GET /result/ HTTP/1.1" 200 6380
+[28/Jul/2017 07:10:50] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 07:10:52] "GET /task/ HTTP/1.1" 200 2347
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 07:08:37
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 07:17:08] "GET /task/ HTTP/1.1" 200 2347
+Internal Server Error: /add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/yangyc/celery/test_celery/test_celery/views/ansible.py", line 34, in add_view
+    result = add.delay(int(hosts),int(command))
+ValueError: invalid literal for int() with base 10: 'all'
+[28/Jul/2017 07:17:18] "GET /add/?hosts=all&command=free HTTP/1.1" 500 70935
+Internal Server Error: /add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/yangyc/celery/test_celery/test_celery/views/ansible.py", line 34, in add_view
+    result = add.delay(int(hosts),int(command))
+ValueError: invalid literal for int() with base 10: 'all'
+[28/Jul/2017 07:18:19] "GET /add/?hosts=all&command=free HTTP/1.1" 500 70935
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 07:15:17
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Internal Server Error: /add/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/yangyc/celery/test_celery/test_celery/views/ansible.py", line 34, in add_view
+    result = add.delay(int(hosts),int(command))
+ValueError: invalid literal for int() with base 10: 'all'
+[28/Jul/2017 07:20:11] "GET /add/?hosts=all&command=free HTTP/1.1" 500 70935
+[28/Jul/2017 07:20:21] "GET /task/ HTTP/1.1" 200 2357
+/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py:1451: RuntimeWarning: DateTimeField Ansible.log_date received a naive datetime (2017-07-28 07:20:23.050305) while time zone support is active.
+  RuntimeWarning)
+[28/Jul/2017 07:20:23] "GET /ansible_adhoc/?hosts=all&command=free HTTP/1.1" 200 2357
+[28/Jul/2017 07:20:24] "GET /result/ HTTP/1.1" 200 6380
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 07:19:59
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 07:25:29
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 07:35:37
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 07:45:42
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 07:58:48] "GET /admin/ HTTP/1.1" 302 0
+[28/Jul/2017 07:58:48] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1650
+[28/Jul/2017 07:58:49] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[28/Jul/2017 07:58:49] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[28/Jul/2017 07:58:51] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 1811
+[28/Jul/2017 07:58:51] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+[28/Jul/2017 07:58:56] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 1811
+[28/Jul/2017 07:59:01] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 1810
+[28/Jul/2017 07:59:06] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 1810
+[28/Jul/2017 07:59:54] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[28/Jul/2017 07:59:54] "GET /admin/ HTTP/1.1" 200 5132
+[28/Jul/2017 07:59:54] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[28/Jul/2017 07:59:54] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[28/Jul/2017 07:59:54] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[28/Jul/2017 07:59:58] "GET /admin/djcelery/crontabschedule/ HTTP/1.1" 200 4250
+[28/Jul/2017 07:59:58] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[28/Jul/2017 07:59:58] "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[28/Jul/2017 07:59:58] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[28/Jul/2017 07:59:58] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[28/Jul/2017 07:59:58] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[28/Jul/2017 07:59:58] "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[28/Jul/2017 07:59:58] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[28/Jul/2017 07:59:58] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[28/Jul/2017 07:59:58] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[28/Jul/2017 07:59:58] "GET /admin/jsi18n/ HTTP/1.1" 200 3217
+[28/Jul/2017 07:59:59] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[28/Jul/2017 08:00:00] "GET /admin/ HTTP/1.1" 200 5132
+[28/Jul/2017 08:00:02] "GET /admin/djcelery/intervalschedule/ HTTP/1.1" 200 6934
+[28/Jul/2017 08:00:02] "GET /admin/jsi18n/ HTTP/1.1" 200 3217
+[28/Jul/2017 08:00:06] "GET /admin/ HTTP/1.1" 200 5132
+[28/Jul/2017 08:00:08] "GET /admin/djcelery/intervalschedule/ HTTP/1.1" 200 6934
+[28/Jul/2017 08:00:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3217
+[28/Jul/2017 08:00:09] "GET /admin/ HTTP/1.1" 200 5132
+[28/Jul/2017 08:00:18] "GET /admin/djcelery/taskstate/ HTTP/1.1" 200 5821
+[28/Jul/2017 08:00:19] "GET /static/djcelery/style.css HTTP/1.1" 200 82
+[28/Jul/2017 08:00:19] "GET /admin/jsi18n/ HTTP/1.1" 200 3217
+[28/Jul/2017 08:00:19] "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+[28/Jul/2017 08:00:20] "GET /admin/ HTTP/1.1" 200 5132
+[28/Jul/2017 08:00:21] "GET /admin/djcelery/workerstate/ HTTP/1.1" 200 3054
+[28/Jul/2017 08:00:22] "GET /admin/jsi18n/ HTTP/1.1" 200 3217
+[28/Jul/2017 08:00:23] "GET /admin/ HTTP/1.1" 200 5132
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 07:55:48
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 08:05:55
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 08:16:00
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 08:26:07
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 08:36:13
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 08:46:24
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 08:56:31
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 09:06:36
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 09:16:42
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 09:26:48
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Unhandled exception in thread started by <function wrapper at 0x7fb632d475f0>
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/autoreload.py", line 235, in wrapper
+    filename = traceback.extract_tb(tb)[-1][0]
+TypeError: 'NoneType' object is not callable
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 09:36:54
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 09:47:00
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 09:57:07
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 10:07:13
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 10:17:24
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 10:27:30
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 10:37:38
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 10:47:45
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 10:57:48
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 11:07:53
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 11:26:05] "GET /main/ HTTP/1.1" 200 664
+[28/Jul/2017 11:26:15] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 11:26:20] "GET /task/ HTTP/1.1" 200 2357
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 11:17:59
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 11:28:30] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 11:28:44] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 11:28:47] "GET /task/ HTTP/1.1" 200 2357
+[28/Jul/2017 11:28:49] "GET /result/ HTTP/1.1" 200 6647
+[28/Jul/2017 11:34:31] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 11:34:34] "GET /task/ HTTP/1.1" 200 2357
+[28/Jul/2017 11:34:35] "GET /result/ HTTP/1.1" 200 6647
+[28/Jul/2017 11:35:09] "GET /periodtask/ HTTP/1.1" 200 2711
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 11:28:07
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 11:45:09] "GET /task/ HTTP/1.1" 200 2357
+/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py:1451: RuntimeWarning: DateTimeField Ansible.log_date received a naive datetime (2017-07-28 11:45:25.465443) while time zone support is active.
+  RuntimeWarning)
+[28/Jul/2017 11:45:25] "GET /ansible_adhoc/?hosts=all&command=hostname HTTP/1.1" 200 2357
+[28/Jul/2017 11:45:48] "GET /result/ HTTP/1.1" 200 6918
+[28/Jul/2017 11:46:21] "GET /result/ HTTP/1.1" 200 6918
+[28/Jul/2017 11:47:30] "GET /result/ HTTP/1.1" 200 6918
+/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py:1451: RuntimeWarning: DateTimeField Ansible.log_date received a naive datetime (2017-07-28 11:48:06.108466) while time zone support is active.
+  RuntimeWarning)
+[28/Jul/2017 11:48:06] "GET /ansible_adhoc/?hosts=all&command=service+iptable+status HTTP/1.1" 200 2357
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 11:38:14
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py:1451: RuntimeWarning: DateTimeField Ansible.log_date received a naive datetime (2017-07-28 11:54:05.252875) while time zone support is active.
+  RuntimeWarning)
+[28/Jul/2017 11:54:05] "GET /ansible_adhoc/?hosts=192&command=service+crond+start HTTP/1.1" 200 2357
+/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py:1451: RuntimeWarning: DateTimeField Ansible.log_date received a naive datetime (2017-07-28 11:54:19.639096) while time zone support is active.
+  RuntimeWarning)
+[28/Jul/2017 11:54:19] "GET /ansible_adhoc/?hosts=192.168.180.131&command=service+crond+restart HTTP/1.1" 200 2357
+/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py:1451: RuntimeWarning: DateTimeField Ansible.log_date received a naive datetime (2017-07-28 11:55:28.766048) while time zone support is active.
+  RuntimeWarning)
+[28/Jul/2017 11:55:28] "GET /ansible_adhoc/?hosts=192.168.180.131&command=%22service+crond+restart%22 HTTP/1.1" 200 2357
+[28/Jul/2017 11:56:18] "GET /periodtask/ HTTP/1.1" 200 2711
+[28/Jul/2017 11:57:35] "GET /periodtask_add/?name=test&task=tools.tasks.ansible_adhoc&hosts=all&command=%22service+crond+restart%22&interval=%7B%22every%22%3A15%2C%22period%22%3A%22seconds%22%7D HTTP/1.1" 200 2711
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 11:48:20
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[28/Jul/2017 11:59:44] "GET /task/ HTTP/1.1" 200 2357
+[28/Jul/2017 11:59:47] "GET /periodtask/ HTTP/1.1" 200 2711
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 28, 2017 - 11:58:25
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[I 170731 02:18:42 command:139] Visit me at http://localhost:5555
+[I 170731 02:18:42 command:144] Broker: redis://192.168.180.128:6379/2
+[I 170731 02:18:42 command:147] Registered tasks: 
+    ['celery.backend_cleanup',
+     'celery.chain',
+     'celery.chord',
+     'celery.chord_unlock',
+     'celery.chunks',
+     'celery.group',
+     'celery.map',
+     'celery.starmap',
+     'test_celery.celery.debug_task',
+     'tools.tasks.add',
+     'tools.tasks.ansible_adhoc']
+[I 170731 02:18:42 mixins:231] Connected to redis://192.168.180.128:6379/2
+[W 170731 02:18:44 control:44] 'stats' inspect method failed
+[W 170731 02:18:44 control:44] 'active_queues' inspect method failed
+[W 170731 02:18:44 control:44] 'registered' inspect method failed
+[W 170731 02:18:44 control:44] 'scheduled' inspect method failed
+[W 170731 02:18:44 control:44] 'active' inspect method failed
+[W 170731 02:18:44 control:44] 'reserved' inspect method failed
+[W 170731 02:18:44 control:44] 'revoked' inspect method failed
+[W 170731 02:18:44 control:44] 'conf' inspect method failed
+[04/Aug/2017 02:20:18] "GET /main/ HTTP/1.1" 200 1080
+Not Found: /favicon.ico
+[04/Aug/2017 02:20:18] "GET /favicon.ico HTTP/1.1" 404 3093
+Not Found: /favicon.ico
+[04/Aug/2017 02:20:19] "GET /favicon.ico HTTP/1.1" 404 3093
+[04/Aug/2017 02:20:19] "GET /main/ HTTP/1.1" 200 1080
+[04/Aug/2017 02:20:20] "GET /periodtask/ HTTP/1.1" 200 3121
+[04/Aug/2017 02:20:21] "GET /task/ HTTP/1.1" 200 2638
+[04/Aug/2017 02:20:23] "GET /periodtask_delete/ HTTP/1.1" 200 2412
+[04/Aug/2017 02:20:24] "GET /periodtask_list/ HTTP/1.1" 200 2303
+[I 170804 02:20:52 command:139] Visit me at http://localhost:5555
+[I 170804 02:20:52 command:144] Broker: redis://192.168.180.128:6379/2
+[I 170804 02:20:52 command:147] Registered tasks: 
+    ['celery.backend_cleanup',
+     'celery.chain',
+     'celery.chord',
+     'celery.chord_unlock',
+     'celery.chunks',
+     'celery.group',
+     'celery.map',
+     'celery.starmap',
+     'test_celery.celery.debug_task',
+     'tools.tasks.add',
+     'tools.tasks.ansible_adhoc',
+     'tools.tasks.backup',
+     'tools.tasks.recover']
+[I 170804 02:20:52 mixins:231] Connected to redis://192.168.180.128:6379/2
+[W 170804 02:20:55 control:44] 'stats' inspect method failed
+[W 170804 02:20:55 control:44] 'active_queues' inspect method failed
+[W 170804 02:20:55 control:44] 'registered' inspect method failed
+[W 170804 02:20:55 control:44] 'scheduled' inspect method failed
+[W 170804 02:20:55 control:44] 'active' inspect method failed
+[W 170804 02:20:55 control:44] 'reserved' inspect method failed
+[W 170804 02:20:55 control:44] 'revoked' inspect method failed
+[W 170804 02:20:55 control:44] 'conf' inspect method failed
+[2017-08-04 02:21:31,222: INFO/MainProcess] beat: Starting...
+[2017-08-04 02:21:31,223: INFO/MainProcess] Writing entries (0)...
+[2017-08-04 02:21:31,579: INFO/MainProcess] Scheduler: Sending due task test (tools.tasks.ansible_adhoc)
+[2017-08-04 02:21:31,618: INFO/MainProcess] Writing entries (1)...
+[2017-08-04 02:21:31,646: INFO/MainProcess] Scheduler: Sending due task congshen (tools.tasks.ansible_adhoc)
+[2017-08-04 02:21:36,856: INFO/MainProcess] Writing entries (1)...
+[2017-08-04 02:21:36,923: INFO/MainProcess] Writing entries (0)...
+celery beat v3.1.25 (Cipater) is starting.
+__    -    ... __   -        _
+Configuration ->
+    . broker -> redis://192.168.180.128:6379/2
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> djcelery.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%INFO
+    . maxinterval -> now (0s)
+[2017-08-04 02:21:36,924: INFO/MainProcess] Writing entries (0)...
+[2017-08-04 02:21:36,925: INFO/MainProcess] Writing entries (0)...
+[04/Aug/2017 02:22:52] "GET /periodtask_list/ HTTP/1.1" 200 2303
+[04/Aug/2017 02:22:59] "GET /periodtask_delete/ HTTP/1.1" 200 2412
+[04/Aug/2017 02:23:07] "GET /periodtask_del/?name=test&task=tools.tasks.ansible_adhoc HTTP/1.1" 200 2412
+[04/Aug/2017 02:23:10] "GET /periodtask_list/ HTTP/1.1" 200 1823
+[04/Aug/2017 02:23:14] "GET /periodtask_delete/ HTTP/1.1" 200 2412
+[04/Aug/2017 02:23:23] "GET /periodtask_del/?name=congshen&task=tools.tasks.ansible_adhoc HTTP/1.1" 200 2412
+[04/Aug/2017 02:23:25] "GET /periodtask_list/ HTTP/1.1" 200 1323
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 02:20:10
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 02:28:08
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 02:38:13
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 02:48:19
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 02:58:26
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 03:08:32
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 03:18:43
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 03:28:48
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/management/__init__.py", line 363, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python2.7/dist-packages/django/core/management/__init__.py", line 307, in execute
+    settings.INSTALLED_APPS
+  File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 56, in __getattr__
+    self._setup(name)
+  File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 41, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 110, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/yangyc/celery/test_celery/test_celery/settings.py", line 138, in <module>
+    Queue('default', Exchange('default'), routing_key='default'),
+NameError: name 'Queue' is not defined
+[04/Aug/2017 03:56:36] "GET /main/ HTTP/1.1" 200 1080
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 03:56:33
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[04/Aug/2017 04:01:12] "GET /main/ HTTP/1.1" 200 1080
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 03:59:06
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 04:09:12
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 04:14:10
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 04:19:18
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 04:25:58
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 04:27:40
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 04:29:26
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 04:33:27
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 04:39:37
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 04:49:42
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 04:59:48
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 05:09:54
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 05:20:00
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 05:30:05
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 05:40:10
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 05:47:35
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 05:50:16
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 06:00:26
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 06:10:32
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 06:12:52
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 06:20:37
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 06:30:44
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 06:40:50
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 06:49:03
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 06:50:57
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 07:01:01
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 07:11:12
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[04/Aug/2017 07:29:07] "GET /periodtask/ HTTP/1.1" 200 3121
+[04/Aug/2017 07:29:09] "GET /result/ HTTP/1.1" 200 8348
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 07:21:23
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 07:31:28
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 07:41:35
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[04/Aug/2017 07:54:54] "GET /main/ HTTP/1.1" 200 1080
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 07:51:41
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 08:01:47
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 08:11:53
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 08:21:59
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 08:32:11
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 08:42:20
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 08:52:26
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 04, 2017 - 09:02:32
+Django version 1.11.3, using settings 'test_celery.settings'
+Starting development server at http://0.0.0.0:8888/
+Quit the server with CONTROL-C.
+[I 170816 06:31:36 command:139] Visit me at http://localhost:5555
+[I 170816 06:31:36 command:144] Broker: redis://192.168.180.128:6379/2
+[I 170816 06:31:36 command:147] Registered tasks: 
+    ['celery.backend_cleanup',
+     'celery.chain',
+     'celery.chord',
+     'celery.chord_unlock',
+     'celery.chunks',
+     'celery.group',
+     'celery.map',
+     'celery.starmap',
+     'test_celery.celery.debug_task',
+     'tools.tasks.add',
+     'tools.tasks.ansible_adhoc',
+     'tools.tasks.backup',
+     'tools.tasks.recover']
+[I 170816 06:31:36 mixins:231] Connected to redis://192.168.180.128:6379/2
+[W 170816 06:31:38 control:44] 'stats' inspect method failed
+[W 170816 06:31:38 control:44] 'active_queues' inspect method failed
+[W 170816 06:31:38 control:44] 'registered' inspect method failed
+[W 170816 06:31:38 control:44] 'scheduled' inspect method failed
+[W 170816 06:31:38 control:44] 'active' inspect method failed
+[W 170816 06:31:38 control:44] 'reserved' inspect method failed
+[W 170816 06:31:38 control:44] 'revoked' inspect method failed
+[W 170816 06:31:38 control:44] 'conf' inspect method failed
+[16/Aug/2017 06:31:43] "GET /main/ HTTP/1.1" 200 1080
+[16/Aug/2017 06:31:44] "GET /main/ HTTP/1.1" 200 1080
+[16/Aug/2017 06:31:45] "GET /main/ HTTP/1.1" 200 1080
+[16/Aug/2017 06:31:45] "GET /main/ HTTP/1.1" 200 1080
+[16/Aug/2017 06:31:47] "GET /task/ HTTP/1.1" 200 2638
+[16/Aug/2017 06:31:47] "GET /main/ HTTP/1.1" 200 1080
+[16/Aug/2017 06:31:48] "GET /task/ HTTP/1.1" 200 2638
+[16/Aug/2017 06:31:48] "GET /main/ HTTP/1.1" 200 1080
+[16/Aug/2017 06:31:49] "GET /periodtask_delete/ HTTP/1.1" 200 2412
+[16/Aug/2017 06:31:50] "GET /main/ HTTP/1.1" 200 1080
+[16/Aug/2017 12:16:24] "GET /main/ HTTP/1.1" 200 1080
+Not Found: /favicon.ico
+[16/Aug/2017 12:16:25] "GET /favicon.ico HTTP/1.1" 404 3093
+Not Found: /favicon.ico
+[16/Aug/2017 12:16:25] "GET /favicon.ico HTTP/1.1" 404 3093
+[16/Aug/2017 12:16:25] "GET /task/ HTTP/1.1" 200 2638
+[16/Aug/2017 12:16:27] "GET /periodtask/ HTTP/1.1" 200 3121
+[E 170816 23:37:33 events:123] Failed to capture events: 'Error 111 connecting to 192.168.180.128:6379. Connection refused.', trying again in 1 seconds.
+[E 170816 23:37:34 events:123] Failed to capture events: '', trying again in 2 seconds.
+[E 170817 09:55:59 events:123] Failed to capture events: '', trying again in 4 seconds.
+[E 170817 09:56:07 events:123] Failed to capture events: '', trying again in 8 seconds.
+[E 170817 09:56:17 events:123] Failed to capture events: '', trying again in 16 seconds.
+[E 170817 09:56:34 events:123] Failed to capture events: '', trying again in 32 seconds.
+[E 170817 09:57:07 events:123] Failed to capture events: '', trying again in 64 seconds.
+[E 170817 09:58:14 events:123] Failed to capture events: '', trying again in 128 seconds.
+[E 170817 10:00:24 events:123] Failed to capture events: '', trying again in 256 seconds.
+[E 170817 10:04:41 events:123] Failed to capture events: '', trying again in 512 seconds.
+[E 170817 10:13:13 events:123] Failed to capture events: '', trying again in 1024 seconds.
+[E 170817 10:30:17 events:123] Failed to capture events: '', trying again in 2048 seconds.
+[E 170817 11:04:25 events:123] Failed to capture events: '', trying again in 4096 seconds.
+[E 170817 12:12:41 events:123] Failed to capture events: '[Errno 24] Too many open files', trying again in 8192 seconds.
+[E 170817 14:29:13 events:123] Failed to capture events: '[Errno 24] Too many open files', trying again in 16384 seconds.
+Unhandled exception in thread started by <function wrapper at 0x7f360e8c1668>
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/django/utils/autoreload.py", line 227, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 117, in inner_run
+    autoreload.raise_last_exception()
+  File "/usr/local/lib/python2.7/site-packages/django/utils/autoreload.py", line 250, in raise_last_exception
+    six.reraise(*_exception)
+  File "/usr/local/lib/python2.7/site-packages/django/utils/autoreload.py", line 227, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/local/lib/python2.7/site-packages/django/apps/registry.py", line 108, in populate
+    app_config.import_models()
+  File "/usr/local/lib/python2.7/site-packages/django/apps/config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "/usr/local/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/usr/local/lib/python2.7/site-packages/djcelery/models.py", line 16, in <module>
+    from . import managers
+  File "/usr/local/lib/python2.7/site-packages/djcelery/managers.py", line 18, in <module>
+    from celery.utils.timeutils import maybe_timedelta
+ImportError: No module named timeutils
+[E 171024 11:25:16 signal:232] Signal handler <bound method ?.on_import_modules of <celery.fixups.django.DjangoFixup object at 0x7fa71f43ff10>> raised: ImportError('No module named timeutils',)
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/celery/utils/dispatch/signal.py", line 227, in send
+        response = receiver(signal=self, sender=sender, **named)
+      File "/usr/local/lib/python2.7/site-packages/celery/fixups/django.py", line 84, in on_import_modules
+        self.worker_fixup.validate_models()
+      File "/usr/local/lib/python2.7/site-packages/celery/fixups/django.py", line 122, in validate_models
+        self.django_setup()
+      File "/usr/local/lib/python2.7/site-packages/celery/fixups/django.py", line 118, in django_setup
+        django.setup()
+      File "/usr/local/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+        apps.populate(settings.INSTALLED_APPS)
+      File "/usr/local/lib/python2.7/site-packages/django/apps/registry.py", line 108, in populate
+        app_config.import_models()
+      File "/usr/local/lib/python2.7/site-packages/django/apps/config.py", line 202, in import_models
+        self.models_module = import_module(models_module_name)
+      File "/usr/local/lib/python2.7/importlib/__init__.py", line 37, in import_module
+        __import__(name)
+      File "/usr/local/lib/python2.7/site-packages/djcelery/models.py", line 16, in <module>
+        from . import managers
+      File "/usr/local/lib/python2.7/site-packages/djcelery/managers.py", line 18, in <module>
+        from celery.utils.timeutils import maybe_timedelta
+    ImportError: No module named timeutils
+[I 171024 11:25:16 command:139] Visit me at http://localhost:5555
+[I 171024 11:25:16 command:144] Broker: redis://192.168.180.128:6379/2
+[I 171024 11:25:16 command:147] Registered tasks: 
+    [u'celery.accumulate',
+     u'celery.backend_cleanup',
+     u'celery.chain',
+     u'celery.chord',
+     u'celery.chord_unlock',
+     u'celery.chunks',
+     u'celery.group',
+     u'celery.map',
+     u'celery.starmap',
+     u'test_celery.celery.debug_task',
+     u'tools.tasks.add',
+     u'tools.tasks.ansible_adhoc',
+     u'tools.tasks.backup',
+     u'tools.tasks.recover']
+[I 171024 11:25:16 mixins:224] Connected to redis://192.168.180.128:6379/2
+[W 171024 11:25:18 control:44] 'stats' inspect method failed
+[W 171024 11:25:18 control:44] 'active_queues' inspect method failed
+[W 171024 11:25:18 control:44] 'registered' inspect method failed
+[W 171024 11:25:18 control:44] 'scheduled' inspect method failed
+[W 171024 11:25:18 control:44] 'active' inspect method failed
+[W 171024 11:25:18 control:44] 'reserved' inspect method failed
+[W 171024 11:25:18 control:44] 'revoked' inspect method failed
+[W 171024 11:25:18 control:44] 'conf' inspect method failed
+usage: celery worker [options] 
+celery: error: unrecognized arguments: --autoreload
+Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python2.7/site-packages/django/core/management/__init__.py", line 363, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python2.7/site-packages/django/core/management/__init__.py", line 337, in execute
+    django.setup()
+  File "/usr/local/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/local/lib/python2.7/site-packages/django/apps/registry.py", line 108, in populate
+    app_config.import_models()
+  File "/usr/local/lib/python2.7/site-packages/django/apps/config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "/usr/local/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/usr/local/lib/python2.7/site-packages/djcelery/models.py", line 16, in <module>
+    from . import managers
+  File "/usr/local/lib/python2.7/site-packages/djcelery/managers.py", line 18, in <module>
+    from celery.utils.timeutils import maybe_timedelta
+ImportError: No module named timeutils
+Unhandled exception in thread started by <function wrapper at 0x7fb2685546e0>
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/django/utils/autoreload.py", line 227, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django/core/management/commands/runserver.py", line 117, in inner_run
+    autoreload.raise_last_exception()
+  File "/usr/local/lib/python2.7/site-packages/django/utils/autoreload.py", line 250, in raise_last_exception
+    six.reraise(*_exception)
+  File "/usr/local/lib/python2.7/site-packages/django/utils/autoreload.py", line 227, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/local/lib/python2.7/site-packages/django/apps/registry.py", line 108, in populate
+    app_config.import_models()
+  File "/usr/local/lib/python2.7/site-packages/django/apps/config.py", line 202, in import_models
+    self.models_module = import_module(models_module_name)
+  File "/usr/local/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/usr/local/lib/python2.7/site-packages/djcelery/models.py", line 16, in <module>
+    from . import managers
+  File "/usr/local/lib/python2.7/site-packages/djcelery/managers.py", line 18, in <module>
+    from celery.utils.timeutils import maybe_timedelta
+ImportError: No module named timeutils
+[E 171025 11:14:17 signal:232] Signal handler <bound method ?.on_import_modules of <celery.fixups.django.DjangoFixup object at 0x7f3f1ac8ff10>> raised: ImportError('No module named timeutils',)
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/celery/utils/dispatch/signal.py", line 227, in send
+        response = receiver(signal=self, sender=sender, **named)
+      File "/usr/local/lib/python2.7/site-packages/celery/fixups/django.py", line 84, in on_import_modules
+        self.worker_fixup.validate_models()
+      File "/usr/local/lib/python2.7/site-packages/celery/fixups/django.py", line 122, in validate_models
+        self.django_setup()
+      File "/usr/local/lib/python2.7/site-packages/celery/fixups/django.py", line 118, in django_setup
+        django.setup()
+      File "/usr/local/lib/python2.7/site-packages/django/__init__.py", line 27, in setup
+        apps.populate(settings.INSTALLED_APPS)
+      File "/usr/local/lib/python2.7/site-packages/django/apps/registry.py", line 108, in populate
+        app_config.import_models()
+      File "/usr/local/lib/python2.7/site-packages/django/apps/config.py", line 202, in import_models
+        self.models_module = import_module(models_module_name)
+      File "/usr/local/lib/python2.7/importlib/__init__.py", line 37, in import_module
+        __import__(name)
+      File "/usr/local/lib/python2.7/site-packages/djcelery/models.py", line 16, in <module>
+        from . import managers
+      File "/usr/local/lib/python2.7/site-packages/djcelery/managers.py", line 18, in <module>
+        from celery.utils.timeutils import maybe_timedelta
+    ImportError: No module named timeutils
+[I 171025 11:14:17 command:139] Visit me at http://localhost:5555
+[I 171025 11:14:17 command:144] Broker: redis://:**@192.168.180.131:7379/0
+[I 171025 11:14:17 command:147] Registered tasks: 
+    [u'celery.accumulate',
+     u'celery.backend_cleanup',
+     u'celery.chain',
+     u'celery.chord',
+     u'celery.chord_unlock',
+     u'celery.chunks',
+     u'celery.group',
+     u'celery.map',
+     u'celery.starmap',
+     u'test_celery.celery.debug_task',
+     u'tools.tasks.add',
+     u'tools.tasks.ansible_adhoc',
+     u'tools.tasks.backup',
+     u'tools.tasks.recover']
+[I 171025 11:14:18 mixins:224] Connected to redis://:**@192.168.180.131:7379/0
+flower   -> flower:0.9.2 tornado:4.5.1 babel:2.4.0
+software -> celery:4.1.0 (latentcall) kombu:4.1.0 py:2.7.12
+            billiard:3.5.0.3 redis:2.10.5
+platform -> system:Linux arch:64bit, ELF imp:CPython
+loader   -> celery.loaders.app.AppLoader
+settings -> transport:redis results:djcelery.backends.database:DatabaseBackend
+
+SECURE_SSL_REDIRECT: False
+SECURE_HSTS_SECONDS: 0
+USE_X_FORWARDED_PORT: False
+CSRF_COOKIE_SECURE: False
+LANGUAGE_CODE: u'en-us'
+ROOT_URLCONF: u'test_celery.urls'
+LOGIN_URL: u'/accounts/login/'
+BROKER_URL: u'redis://:********@192.168.180.131:7379/0'
+BASE_DIR: '/usr/local/test_celery'
+TEST_NON_SERIALIZED_APPS: []
+DEFAULT_CHARSET: u'utf-8'
+SESSION_SERIALIZER: u'django.contrib.sessions.serializers.JSONSerializer'
+STATIC_ROOT: None
+CELERYBEAT_SCHEDULER: u'djcelery.schedulers.DatabaseScheduler'
+ALLOWED_HOSTS: [u'192.168.180.131', u'localhost']
+EMAIL_HOST: u'localhost'
+MESSAGE_STORAGE: u'django.contrib.messages.storage.fallback.FallbackStorage'
+EMAIL_SUBJECT_PREFIX: u'[Django] '
+FILE_UPLOAD_PERMISSIONS: None
+STATICFILES_FINDERS: [u'django.contrib.staticfiles.finders.FileSystemFinder',
+ u'django.contrib.staticfiles.finders.AppDirectoriesFinder']
+SESSION_CACHE_ALIAS: u'default'
+SESSION_COOKIE_DOMAIN: None
+SESSION_COOKIE_NAME: u'sessionid'
+TIME_INPUT_FORMATS: [u'%H:%M:%S', u'%H:%M:%S.%f', u'%H:%M']
+SECURE_REDIRECT_EXEMPT: []
+DATABASES: {
+    u'default': {   'ATOMIC_REQUESTS': False,
+                    'AUTOCOMMIT': True,
+                    'CONN_MAX_AGE': 0,
+                    u'ENGINE': u'django.db.backends.mysql',
+                    u'HOST': u'',
+                    u'NAME': u'celery',
+                    'OPTIONS': {   },
+                    u'PASSWORD': u'********',
+                    u'PORT': u'4310',
+                    'TEST': {   'CHARSET': None,
+                                'COLLATION': None,
+                                'MIRROR': None,
+                                'NAME': None},
+                    'TIME_ZONE': None,
+                    u'USER': u'root'}}
+EMAIL_SSL_KEYFILE: u'********'
+FILE_UPLOAD_DIRECTORY_PERMISSIONS: None
+THOUSAND_SEPARATOR: u','
+FILE_UPLOAD_HANDLERS: [u'django.core.files.uploadhandler.MemoryFileUploadHandler',
+ u'django.core.files.uploadhandler.TemporaryFileUploadHandler']
+DEFAULT_CONTENT_TYPE: u'text/html'
+APPEND_SLASH: True
+FIRST_DAY_OF_WEEK: 0
+DATABASE_ROUTERS: u'********'
+EMAIL_USE_SSL: False
+YEAR_MONTH_FORMAT: u'F Y'
+STATICFILES_STORAGE: u'django.contrib.staticfiles.storage.StaticFilesStorage'
+CACHES: {
+    u'default': {   u'BACKEND': u'django.core.cache.backends.locmem.LocMemCache'}}
+SERVER_EMAIL: u'root@localhost'
+SESSION_COOKIE_PATH: u'/'
+SILENCED_SYSTEM_CHECKS: []
+MIDDLEWARE_CLASSES: [u'django.middleware.security.SecurityMiddleware',
+ u'django.contrib.sessions.middleware.SessionMiddleware',
+ u'django.middleware.common.CommonMiddleware',
+ u'django.middleware.csrf.CsrfViewMiddleware',
+ u'django.contrib.auth.middleware.AuthenticationMiddleware',
+ u'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+ u'django.contrib.messages.middleware.MessageMiddleware',
+ u'django.middleware.clickjacking.XFrameOptionsMiddleware']
+USE_I18N: True
+SECRET_KEY: u'********'
+LANGUAGE_COOKIE_NAME: u'django_language'
+FORM_RENDERER: u'django.forms.renderers.DjangoTemplates'
+FILE_UPLOAD_TEMP_DIR: None
+LOGGING_CONFIG: u'logging.config.dictConfig'
+BROKER_POOL_LIMIT: 0
+WSGI_APPLICATION: u'test_celery.wsgi.application'
+X_FRAME_OPTIONS: u'SAMEORIGIN'
+AUTHENTICATION_BACKENDS: [u'django.contrib.auth.backends.ModelBackend']
+USE_THOUSAND_SEPARATOR: False
+USE_X_FORWARDED_HOST: False
+CSRF_HEADER_NAME: u'HTTP_X_CSRFTOKEN'
+EMAIL_TIMEOUT: None
+SECURE_SSL_HOST: None
+SIGNING_BACKEND: u'django.core.signing.TimestampSigner'
+SESSION_COOKIE_SECURE: False
+SECURE_BROWSER_XSS_FILTER: False
+CSRF_COOKIE_DOMAIN: None
+FILE_CHARSET: u'utf-8'
+DEBUG: True
+DATA_UPLOAD_MAX_MEMORY_SIZE: 2621440
+LANGUAGE_COOKIE_DOMAIN: None
+DEFAULT_FILE_STORAGE: u'django.core.files.storage.FileSystemStorage'
+INSTALLED_APPS: [u'django.contrib.admin',
+ u'django.contrib.auth',
+ u'django.contrib.contenttypes',
+ u'django.contrib.sessions',
+ u'django.contrib.messages',
+ u'django.contrib.staticfiles',
+ u'djcelery',
+ u'test_celery',
+ u'tools']
+LANGUAGES: [(u'af', u'Afrikaans'),
+ (u'ar', u'Arabic'),
+ (u'ast', u'Asturian'),
+ (u'az', u'Azerbaijani'),
+ (u'bg', u'Bulgarian'),
+ (u'be', u'Belarusian'),
+ (u'bn', u'Bengali'),
+ (u'br', u'Breton'),
+ (u'bs', u'Bosnian'),
+ (u'ca', u'Catalan'),
+ (u'cs', u'Czech'),
+ (u'cy', u'Welsh'),
+ (u'da', u'Danish'),
+ (u'de', u'German'),
+ (u'dsb', u'Lower Sorbian'),
+ (u'el', u'Greek'),
+ (u'en', u'English'),
+ (u'en-au', u'Australian English'),
+ (u'en-gb', u'British English'),
+ (u'eo', u'Esperanto'),
+ (u'es', u'Spanish'),
+ (u'es-ar', u'Argentinian Spanish'),
+ (u'es-co', u'Colombian Spanish'),
+ (u'es-mx', u'Mexican Spanish'),
+ (u'es-ni', u'Nicaraguan Spanish'),
+ (u'es-ve', u'Venezuelan Spanish'),
+ (u'et', u'Estonian'),
+ (u'eu', u'Basque'),
+ (u'fa', u'Persian'),
+ (u'fi', u'Finnish'),
+ (u'fr', u'French'),
+ (u'fy', u'Frisian'),
+ (u'ga', u'Irish'),
+ (u'gd', u'Scottish Gaelic'),
+ (u'gl', u'Galician'),
+ (u'he', u'Hebrew'),
+ (u'hi', u'Hindi'),
+ (u'hr', u'Croatian'),
+ (u'hsb', u'Upper Sorbian'),
+ (u'hu', u'Hungarian'),
+ (u'ia', u'Interlingua'),
+ (u'id', u'Indonesian'),
+ (u'io', u'Ido'),
+ (u'is', u'Icelandic'),
+ (u'it', u'Italian'),
+ (u'ja', u'Japanese'),
+ (u'ka', u'Georgian'),
+ (u'kk', u'Kazakh'),
+ (u'km', u'Khmer'),
+ (u'kn', u'Kannada'),
+ (u'ko', u'Korean'),
+ (u'lb', u'Luxembourgish'),
+ (u'lt', u'Lithuanian'),
+ (u'lv', u'Latvian'),
+ (u'mk', u'Macedonian'),
+ (u'ml', u'Malayalam'),
+ (u'mn', u'Mongolian'),
+ (u'mr', u'Marathi'),
+ (u'my', u'Burmese'),
+ (u'nb', u'Norwegian Bokm\xe5l'),
+ (u'ne', u'Nepali'),
+ (u'nl', u'Dutch'),
+ (u'nn', u'Norwegian Nynorsk'),
+ (u'os', u'Ossetic'),
+ (u'pa', u'Punjabi'),
+ (u'pl', u'Polish'),
+ (u'pt', u'Portuguese'),
+ (u'pt-br', u'Brazilian Portuguese'),
+ (u'ro', u'Romanian'),
+ (u'ru', u'Russian'),
+ (u'sk', u'Slovak'),
+ (u'sl', u'Slovenian'),
+ (u'sq', u'Albanian'),
+ (u'sr', u'Serbian'),
+ (u'sr-latn', u'Serbian Latin'),
+ (u'sv', u'Swedish'),
+ (u'sw', u'Swahili'),
+ (u'ta', u'Tamil'),
+ (u'te', u'Telugu'),
+ (u'th', u'Thai'),
+ (u'tr', u'Turkish'),
+ (u'tt', u'Tatar'),
+ (u'udm', u'Udmurt'),
+ (u'uk', u'Ukrainian'),
+ (u'ur', u'Urdu'),
+ (u'vi', u'Vietnamese'),
+ (u'zh-hans', u'Simplified Chinese'),
+ (u'zh-hant', u'Traditional Chinese')]
+SECURE_HSTS_INCLUDE_SUBDOMAINS: False
+MIDDLEWARE: None
+CSRF_USE_SESSIONS: False
+is_overridden: <bound method Settings.is_overridden of <Settings "test_celery.settings">>
+PREPEND_WWW: False
+SECURE_PROXY_SSL_HEADER: None
+LANGUAGE_COOKIE_AGE: None
+SESSION_COOKIE_HTTPONLY: True
+DEBUG_PROPAGATE_EXCEPTIONS: False
+INTERNAL_IPS: []
+MEDIA_URL: u''
+MONTH_DAY_FORMAT: u'F j'
+MANAGERS: []
+SESSION_EXPIRE_AT_BROWSER_CLOSE: False
+AUTH_PASSWORD_VALIDATORS: u'********'
+TIME_FORMAT: u'P'
+AUTH_USER_MODEL: u'auth.User'
+DATE_INPUT_FORMATS: [u'%Y-%m-%d',
+ u'%m/%d/%Y',
+ u'%m/%d/%y',
+ u'%b %d %Y',
+ u'%b %d, %Y',
+ u'%d %b %Y',
+ u'%d %b, %Y',
+ u'%B %d %Y',
+ u'%B %d, %Y',
+ u'%d %B %Y',
+ u'%d %B, %Y']
+CSRF_TRUSTED_ORIGINS: []
+CSRF_COOKIE_NAME: u'csrftoken'
+EMAIL_HOST_PASSWORD: u'********'
+EMAIL_USE_LOCALTIME: False
+PASSWORD_RESET_TIMEOUT_DAYS: u'********'
+SESSION_FILE_PATH: None
+CACHE_MIDDLEWARE_ALIAS: u'default'
+SESSION_SAVE_EVERY_REQUEST: False
+NUMBER_GROUPING: 0
+SESSION_ENGINE: u'django.contrib.sessions.backends.db'
+CSRF_FAILURE_VIEW: u'django.views.csrf.csrf_failure'
+CSRF_COOKIE_PATH: u'/'
+LOGIN_REDIRECT_URL: u'/accounts/profile/'
+DECIMAL_SEPARATOR: u'.'
+IGNORABLE_404_URLS: []
+LOCALE_PATHS: []
+SECURE_HSTS_PRELOAD: False
+USE_L10N: True
+FIXTURE_DIRS: []
+FORCE_SCRIPT_NAME: None
+DATE_FORMAT: u'N j, Y'
+MEDIA_ROOT: u''
+DEFAULT_EXCEPTION_REPORTER_FILTER: u'django.views.debug.SafeExceptionReporterFilter'
+CELERY_ROUTES: 
+    (<test_celery.settings.MyRouter object at 0x7f3f1ac47610>,)
+FORMAT_MODULE_PATH: None
+DEFAULT_FROM_EMAIL: u'webmaster@localhost'
+ADMINS: []
+SECURE_CONTENT_TYPE_NOSNIFF: False
+DATETIME_FORMAT: u'N j, Y, P'
+DISALLOWED_USER_AGENTS: []
+CELERY_TIMEZONE: u'Asia/Shanghai'
+LOGGING: {
+    }
+SHORT_DATE_FORMAT: u'm/d/Y'
+TEMPLATES: [{u'APP_DIRS': True,
+  u'BACKEND': u'django.template.backends.django.DjangoTemplates',
+  u'DIRS': [u'/usr/local/test_celery/test_celery/templates'],
+  u'OPTIONS': {u'context_processors': [u'django.template.context_processors.debug',
+                                       u'django.template.context_processors.request',
+                                       u'django.contrib.auth.context_processors.auth',
+                                       u'django.contrib.messages.context_processors.messages']}}]
+CELERY_TASK_QUEUES: 
+    (<unbound Queue low_queue -> <unbound Exchange low_queue(direct)> -> for_backup>,
+ <unbound Queue high_queue -> <unbound Exchange high_queue(direct)> -> for_recover>)
+LOGOUT_REDIRECT_URL: None
+TEST_RUNNER: u'django.test.runner.DiscoverRunner'
+CACHE_MIDDLEWARE_KEY_PREFIX: u'********'
+EMAIL_USE_TLS: False
+TIME_ZONE: u'Asia/Shanghai'
+FILE_UPLOAD_MAX_MEMORY_SIZE: 2621440
+EMAIL_BACKEND: u'django.core.mail.backends.smtp.EmailBackend'
+STATICFILES_DIRS: []
+DEFAULT_TABLESPACE: u''
+MIGRATION_MODULES: {
+    }
+DATA_UPLOAD_MAX_NUMBER_FIELDS: 1000
+SESSION_COOKIE_AGE: 1209600
+SETTINGS_MODULE: 'test_celery.settings'
+USE_ETAGS: False
+LANGUAGES_BIDI: [u'he', u'ar', u'fa', u'ur']
+DEFAULT_INDEX_TABLESPACE: u''
+CSRF_COOKIE_AGE: 31449600
+STATIC_URL: u'/static/'
+EMAIL_PORT: 25
+USE_TZ: True
+SHORT_DATETIME_FORMAT: u'm/d/Y P'
+CELERY_RESULT_BACKEND: u'djcelery.backends.database:DatabaseBackend'
+PASSWORD_HASHERS: u'********'
+ABSOLUTE_URL_OVERRIDES: {
+    }
+LANGUAGE_COOKIE_PATH: u'/'
+CACHE_MIDDLEWARE_SECONDS: 600
+EMAIL_SSL_CERTFILE: None
+CSRF_COOKIE_HTTPONLY: False
+DATETIME_INPUT_FORMATS: [u'%Y-%m-%d %H:%M:%S',
+ u'%Y-%m-%d %H:%M:%S.%f',
+ u'%Y-%m-%d %H:%M',
+ u'%Y-%m-%d',
+ u'%m/%d/%Y %H:%M:%S',
+ u'%m/%d/%Y %H:%M:%S.%f',
+ u'%m/%d/%Y %H:%M',
+ u'%m/%d/%Y',
+ u'%m/%d/%y %H:%M:%S',
+ u'%m/%d/%y %H:%M:%S.%f',
+ u'%m/%d/%y %H:%M',
+ u'%m/%d/%y']
+EMAIL_HOST_USER: u''
+
+Traceback (most recent call last):
+  File "/usr/local/bin/flower", line 11, in <module>
+    load_entry_point('flower==0.9.2', 'console_scripts', 'flower')()
+  File "/usr/local/lib/python2.7/site-packages/flower/__main__.py", line 11, in main
+    flower.execute_from_commandline()
+  File "/usr/local/lib/python2.7/site-packages/celery/bin/base.py", line 281, in execute_from_commandline
+    return self.handle_argv(self.prog_name, argv[1:])
+  File "/usr/local/lib/python2.7/site-packages/flower/command.py", line 59, in handle_argv
+    return self.run_from_argv(prog_name, argv)
+  File "/usr/local/lib/python2.7/site-packages/flower/command.py", line 54, in run_from_argv
+    flower.start()
+  File "/usr/local/lib/python2.7/site-packages/flower/app.py", line 52, in start
+    xheaders=self.options.xheaders)
+  File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1943, in listen
+    server.listen(port, address)
+  File "/usr/local/lib/python2.7/site-packages/tornado/tcpserver.py", line 142, in listen
+    sockets = bind_sockets(port, address=address)
+  File "/usr/local/lib/python2.7/site-packages/tornado/netutil.py", line 197, in bind_sockets
+    sock.bind(sockaddr)
+  File "/usr/local/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+socket.error: [Errno 98] Address already in use
+Running a worker with superuser privileges when the
+worker accepts messages serialized with pickle is a very bad idea!
+
+If you really want to continue then you have to set the C_FORCE_ROOT
+environment variable (but please think about this before you do).
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+[I 171220 17:31:22 command:139] Visit me at http://localhost:5555
+[I 171220 17:31:22 command:144] Broker: redis://:**@192.168.10.243:7390/0
+[2017-12-20 17:31:22,968: INFO/MainProcess] beat: Starting...
+[2017-12-20 17:31:22,968: INFO/MainProcess] Writing entries (0)...
+[I 171220 17:31:22 command:147] Registered tasks: 
+    ['celery.backend_cleanup',
+     'celery.chain',
+     'celery.chord',
+     'celery.chord_unlock',
+     'celery.chunks',
+     'celery.group',
+     'celery.map',
+     'celery.starmap',
+     'test_celery.celery.debug_task',
+     'tools.tasks.add',
+     'tools.tasks.ansible_adhoc',
+     'tools.tasks.backup',
+     'tools.tasks.recover',
+     'tools.tasks.redis_install',
+     'tools.tasks.tcollector_update']
+[I 171220 17:31:22 mixins:231] Connected to redis://:**@192.168.10.243:7390/0
+[W 171220 17:31:25 control:44] 'stats' inspect method failed
+[W 171220 17:31:25 control:44] 'active_queues' inspect method failed
+[W 171220 17:31:25 control:44] 'registered' inspect method failed
+[W 171220 17:31:25 control:44] 'scheduled' inspect method failed
+[W 171220 17:31:25 control:44] 'active' inspect method failed
+[W 171220 17:31:25 control:44] 'reserved' inspect method failed
+[W 171220 17:31:25 control:44] 'revoked' inspect method failed
+[W 171220 17:31:25 control:44] 'conf' inspect method failed
+[2017-12-20 17:31:27,988: INFO/MainProcess] Writing entries (0)...
+Not Found: /
+[20/Dec/2017 17:31:45] "GET / HTTP/1.1" 404 3041
+Not Found: /favicon.ico
+[20/Dec/2017 17:31:45] "GET /favicon.ico HTTP/1.1" 404 3092
+[20/Dec/2017 17:31:53] "GET /main HTTP/1.1" 301 0
+[20/Dec/2017 17:31:53] "GET /main/ HTTP/1.1" 200 1076
+[20/Dec/2017 17:32:08] "GET /admin HTTP/1.1" 301 0
+[20/Dec/2017 17:32:08] "GET /admin/ HTTP/1.1" 302 0
+[20/Dec/2017 17:32:08] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1654
+[20/Dec/2017 17:32:08] "GET /static/admin/css/login.css HTTP/1.1" 200 1203
+[20/Dec/2017 17:32:08] "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+[20/Dec/2017 17:32:08] "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[20/Dec/2017 17:32:08] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[20/Dec/2017 17:32:08] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[20/Dec/2017 17:32:20] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 1814
+[20/Dec/2017 17:32:20] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[20/Dec/2017 17:32:24] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 1814
+[20/Dec/2017 17:32:29] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[20/Dec/2017 17:32:29] "GET /admin/ HTTP/1.1" 200 5136
+[20/Dec/2017 17:32:29] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+[20/Dec/2017 17:32:29] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[20/Dec/2017 17:32:29] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[20/Dec/2017 17:32:35] "GET /admin/djcelery/crontabschedule/ HTTP/1.1" 200 4254
+[20/Dec/2017 17:32:35] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[20/Dec/2017 17:32:35] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+[20/Dec/2017 17:32:35] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+[20/Dec/2017 17:32:35] "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+[20/Dec/2017 17:32:35] "GET /admin/jsi18n/ HTTP/1.1" 200 3217
+[20/Dec/2017 17:32:35] "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+[20/Dec/2017 17:32:35] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+[20/Dec/2017 17:32:35] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[20/Dec/2017 17:32:35] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[20/Dec/2017 17:32:35] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[20/Dec/2017 17:32:35] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[20/Dec/2017 17:32:36] "GET /admin/ HTTP/1.1" 200 5136
+[20/Dec/2017 17:32:38] "GET /admin/djcelery/periodictask/ HTTP/1.1" 200 5957
+[20/Dec/2017 17:32:38] "GET /admin/jsi18n/ HTTP/1.1" 200 3217
+[20/Dec/2017 17:32:38] "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[20/Dec/2017 17:32:38] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[20/Dec/2017 17:32:38] "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+[20/Dec/2017 17:32:40] "GET /admin/djcelery/periodictask/add/ HTTP/1.1" 200 11997
+[20/Dec/2017 17:32:40] "GET /static/admin/css/forms.css HTTP/1.1" 200 8173
+[20/Dec/2017 17:32:40] "GET /static/admin/js/calendar.js HTTP/1.1" 200 7790
+[20/Dec/2017 17:32:40] "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[20/Dec/2017 17:32:40] "GET /static/admin/js/collapse.js HTTP/1.1" 200 1151
+[20/Dec/2017 17:32:40] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20529
+[20/Dec/2017 17:32:40] "GET /admin/jsi18n/ HTTP/1.1" 200 3217
+[20/Dec/2017 17:32:40] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[20/Dec/2017 17:32:40] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+[20/Dec/2017 17:32:44] "GET /admin/djcelery/periodictask/ HTTP/1.1" 200 5957
+[20/Dec/2017 17:32:44] "GET /admin/jsi18n/ HTTP/1.1" 200 3217
+[20/Dec/2017 17:32:45] "GET /admin/djcelery/ HTTP/1.1" 200 3933
+[20/Dec/2017 17:32:48] "GET /admin/ HTTP/1.1" 200 5136
+[20/Dec/2017 17:33:11] "GET /main/ HTTP/1.1" 200 1076
+[20/Dec/2017 17:33:12] "GET /periodtask/ HTTP/1.1" 200 3119
+[20/Dec/2017 17:33:14] "GET /task/ HTTP/1.1" 200 2636
+[20/Dec/2017 17:33:15] "GET /periodtask_delete/ HTTP/1.1" 200 2410
+[20/Dec/2017 17:33:17] "GET /periodtask_list/ HTTP/1.1" 200 1323
+[20/Dec/2017 17:33:18] "GET /periodtask/ HTTP/1.1" 200 3119
+[2017-12-20 17:34:32,862: INFO/MainProcess] Writing entries (0)...
+[20/Dec/2017 17:36:17] "GET /periodtask/ HTTP/1.1" 200 3119
+[2017-12-20 17:37:37,748: INFO/MainProcess] Writing entries (0)...
+[20/Dec/2017 17:37:50] "GET /admin/djcelery/ HTTP/1.1" 200 3933
+[20/Dec/2017 17:38:06] "GET /main/ HTTP/1.1" 200 1076
+[20/Dec/2017 17:38:08] "GET /task/ HTTP/1.1" 200 2636
+/usr/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1451: RuntimeWarning: DateTimeField Ansible.log_date received a naive datetime (2017-12-20 17:38:22.612278) while time zone support is active.
+  RuntimeWarning)
+[20/Dec/2017 17:38:22] "GET /ansible_adhoc/?hosts=127.0.0.1&module=-m++command&command=hostname HTTP/1.1" 200 2636
+[20/Dec/2017 17:38:25] "GET /result/ HTTP/1.1" 200 2517
+[2017-12-20 17:40:42,634: INFO/MainProcess] Writing entries (0)...
+[20/Dec/2017 17:42:10] "GET /main/ HTTP/1.1" 200 1076
+[20/Dec/2017 17:42:11] "GET /periodtask_list/ HTTP/1.1" 200 1323
+[20/Dec/2017 17:42:13] "GET /periodtask/ HTTP/1.1" 200 3119
+[20/Dec/2017 17:42:15] "GET /result/ HTTP/1.1" 200 2517
+[2017-12-20 17:43:47,520: INFO/MainProcess] Writing entries (0)...
+[2017-12-20 17:46:52,396: INFO/MainProcess] Writing entries (0)...

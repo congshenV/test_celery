@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>任务部署</title>
+</head>
+<style>
+body.login {
+    background: #f8f8f8;
+}
+
+.login #header {
+    height: auto;
+    padding: 5px 16px;
+    background: #3D7878;
+}
+
+.login #header h1 {
+    font-size: 18px;
+    color: white;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.login #content {
+    padding: 20px 20px 0;
+}
+
+.login #container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+}
+
+.login #content-main {
+    width: 100%;
+}
+
+.login .form-row {
+    padding: 4px 0;
+    float: left;
+    width: 100%;
+    border-bottom: none;
+}
+
+.login .form-row label {
+    padding-right: 0.5em;
+    line-height: 2em;
+    font-size: 1em;
+    clear: both;
+    color: #333;
+}
+
+.login .form-row #hosts, .login .form-row #command, .login .form-row #module, .login .form-row #name, .login .form-row #task, .login .form-row #crontab {
+    clear: both;
+    padding: 8px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.login span.help {
+    font-size: 10px;
+    display: block;
+}
+
+.login .submit-row {
+    clear: both;
+    padding: 1em 0 0 9.4em;
+    margin: 0;
+    border: none;
+    background: none;
+    text-align: left;
+}
+
+.login .password-reset-link {
+    text-align: center;
+}
+</style>
+<body class=" login">
+<div id="container">
+     <!-- Header -->
+    <div id="header">
+        <div id="branding">
+            <h1 id="site-name">定时任务</h1>
+        </div>
+    </div>
+    <div id="content" class="colM">
+    <div id="content-main">
+    <form action="http://192.168.10.243:8888/periodtask_add/" method="get" id="login-form">
+        <div class="form-row">
+        name(period_name)：<input name='name' id='name' type="text" /></br>
+            </div>
+        <div class="form-row">
+        task(tools.tasks.ansible_adhoc)：<input name='task' id='task' type="text" /></br>
+            </div>
+        <div class="form-row">
+        主机(1.1.1.1,1.1.1.2)：<input name='hosts' id='hosts' type="text" /></br>
+            </div>
+        <div class="form-row">
+        模块(-m command)：<input name='module' id='module' type="text"/></br>
+            </div>
+        <div class="form-row">
+        命令(ifconfig -a -v)：<input name='command' id='command' type="text"/></br>
+            </div>
+        <div class="form-row">
+        Crontab(1 * * * *)：<input name='crontab' id='crontab' type="text"/></br>
+            </div>
+        <div class="submit-row">
+             <input style="height: 40px;width: 100px;color: white;background: #408080" type="submit" value="保存"/>
+        </div>
+    </form>
+    </div>
+    </div>
+    <h3 style="margin-left: 300px"><a href="/result/">查看任务结果</a></h3>
+    <h3 style="margin-left: 300px"><a href="/periodtask_list/">查看定时任务</a></h3>
+    <h3 style="margin-left: 300px"><a href="http://127.0.0.1:5555/tasks">FLOWER</a></h3>
+</div>
+</body>
+</html>

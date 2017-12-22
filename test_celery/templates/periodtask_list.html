@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<style type="text/css">
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+}
+</style>
+<body>
+<div>
+    <h2>定时任务列表：</h2>
+    <table border="1" class="gridtable">
+        <tr>
+            <td>name</td>
+            <td>task</td>
+            <td>args</td>
+            <td>kwargs</td>
+            <td>enabled</td>
+            <td>last_run_at</td>
+            <td>total_run_count</td>
+            <td>date_changed</td>
+            <td>crontab</td>
+
+        </tr>
+        {% for row in rows %}
+        <tr>
+            {% if row.enabled == 1 %}
+                <td style="color:#00BB00">{{ row.name }}</td>
+            {% endif %}
+            <td>{{ row.task }}</td>
+            <td>{{ row.args }}</td>
+            <td>{{ row.kwargs }}</td>
+            <td>{{ row.enabled }}</td>
+            <td>{{ row.last_run_at|date:"Y-m-d H:i:s" }}</td>
+            <td>{{ row.total_run_count }}</td>
+            <td>{{ row.date_changed|date:"Y-m-d H:i:s" }}</td>
+            <td>{{ row.crontab }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
